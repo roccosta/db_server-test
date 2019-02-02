@@ -17,14 +17,18 @@
 
 	http://chromedriver.chromium.org/getting-started
 
-	In Terminal, navigate to the folder where the feature file is situated and use "bundle install" command, this will install all dependencies the project needs to run.
+	In Terminal, navigate to the folder where the feature file is situated and install the gem Bundler with the following command:
 
-	After this installation ends, type the following command to execute automation:
+		gem install bundler
+ 
+	After instalation ends, run the "bundle install" command. This will install all dependencies the project needs to run.
+
+	After the installation ends, type the following command to execute automation:
 
 		cucumber
  
 	This command will start the automation in the terminal, and will execute the automation on the browser.
-Also a tag is added as an example for excuting the specific scenario.
+Also a tag is added as an example for excuting a specific scenario.
 
 
 		cucumber -t @buy_something
