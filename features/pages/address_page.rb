@@ -1,5 +1,4 @@
 class Address < SitePrism::Page
-
 	elements :fullname, ".address_firstname.address_lastname"
 	elements :company, ".address_company"
 	elements :addresses, ".address_address1.address_address2"
@@ -19,5 +18,4 @@ class Address < SitePrism::Page
 		phone_mobile[0].text != phone_mobile[1].text ? raise : nil
 		proceed_to_checkout.click
 	end
-
 end

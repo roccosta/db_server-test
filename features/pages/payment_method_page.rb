@@ -12,12 +12,12 @@ class PaymentMethod < SitePrism::Page
 		proceed_to_checkout.click
 	end
 
-	def validate_final_price
-		final_price = "$#{'%.2f' % ($price[1..-1].to_f + total_shipping.text[1..-1].to_f)}"
+	def validate_final_price?(price)
+		final_price = "$#{'%.2f' % (price[1..-1].to_f + total_shipping.text[1..-1].to_f)}"
 		final_price != total_price.text ? raise : nil
 	end
 
-	def check_end_of_purchase
+	def check_end_of_purchase?
 		expect(page.has_content?("Your order on My Store is complete.")).to be true
 	end
 end

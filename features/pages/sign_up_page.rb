@@ -1,5 +1,4 @@
 class SignUp < SitePrism::Page
-
 	element  :create_an_account, "#SubmitCreate"
 	element  :email_create, "#email_create"
 	element  :gender_1, "#uniform-id_gender1"
@@ -58,5 +57,4 @@ class SignUp < SitePrism::Page
         address_alias.set Faker::Address.street_address
         click_button('submitAccount')
 	end
-
 end

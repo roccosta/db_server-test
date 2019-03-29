@@ -1,9 +1,11 @@
 Given("that I access Automation Practice website") do
-  @page.(HomePage).load
+  @page.(Home).load
 end
 
 When("I add a random product to the cart") do
-  @page.(HomePage).add_item_to_cart
+  @page.(Home).add_item_to_cart
+  @cart = @page.(Home).receive_cart
+  @price = @page.(Home).receive_price
 end
 
 When("do the checkout") do
@@ -11,7 +13,7 @@ When("do the checkout") do
 end
 
 When("validate that my cart contains the selected product") do
-  @page.(Checkout).check_product_in_cart
+  @page.(Checkout).check_product_in_cart(@cart)
 end
 
 When("register a user") do
@@ -32,9 +34,9 @@ When("choose the payment method") do
 end
 
 When("validate the total price of the purchase") do
-  @page.(PaymentMethod).validate_final_price
+  @page.(PaymentMethod).validate_final_price?(@price)
 end
 
 Then("I must have success on my purchase") do
-  @page.(PaymentMethod).check_end_of_purchase
+  @page.(PaymentMethod).check_end_of_purchase?
 end

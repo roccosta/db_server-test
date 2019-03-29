@@ -1,5 +1,4 @@
-class HomePage < SitePrism::Page
-
+class Home < SitePrism::Page
 	set_url  'http://automationpractice.com/index.php?'
 	element  :add_to_cart, ".button.ajax_add_to_cart_button.btn.btn-default"
 	elements :product_frame, ".product-image-container"
@@ -13,9 +12,14 @@ class HomePage < SitePrism::Page
 
 		wait_until_add_to_cart_visible
 		add_to_cart.click
-
-		$cart << product_name.text + "," + product_price.text
-		$price = product_price.text
 	end
 
+	def receive_cart
+		cart = []
+		cart << product_name.text + "," + product_price.text
+	end
+
+	def receive_price
+		price = product_price.text
+	end
 end
