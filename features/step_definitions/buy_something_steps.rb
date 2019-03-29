@@ -18,7 +18,8 @@ end
 
 When("register a user") do
   @page.(SignUp).start_sign_up
-  @page.(SignUp).fill_sign_up_form
+  @page.(SignUp).fill_personal_data
+  @page.(SignUp).fill_address_data
 end
 
 When("confirm the delivery address") do

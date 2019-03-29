@@ -1,3 +1,3 @@
 Before do
-	@page = lambda {|klass| klass.new}
+  @page = lambda {|klass| klass.new}
 end
